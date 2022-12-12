@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import HomePage from './HomePage';
+import PostHolder from './PostsHolder';
 import NavBar from "./NavBar";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Communities from './Communities';
@@ -7,35 +7,32 @@ import Account from './Account';
 import Notifications from './Notifications';
 import 'semantic-ui-css/semantic.min.css'
 
-const loginUrl = "http://localhost:3000/login"
+const updateUrl = "http://localhost:3000/profile"
 
 function App() {
 
+  const [ user, setUser ] = useState(null)
+
   useEffect(()=>{
     if (localStorage.uid)
-    console.log("User found:", localStorage.uid)
+      fetch(updateUrl,{
+        method: 'POST',
+        headers: { 
+          'content-type': 'application/json',
+          'Authenticate': localStorage.uid}
+      })
+      .then(r => r.json())
+      .then( userInfo => setUser(userInfo))
     else
     console.log("No user found")
   }, [])
 
-  fetch( loginUrl, {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify({
-      email: 'brook@gmail.com',
-      password: '12345_Bb'
-    })
-  })
-  .then( r => r.json())
-  .then( user => localStorage.uid = user.uid)
   return (
       <div>
             <NavBar/>
+            <h1>Welcome {user?.username}</h1>
             <Routes>
-                <Route path="/" element={<HomePage/>}/>
+                <Route path="/" element={<PostHolder/>}/>
                 <Route path="/notifications" element={<Notifications/>}/>
                 <Route path="/communities" element={<Communities/>}/>
                 <Route path="/account" element={<Account/>}/>

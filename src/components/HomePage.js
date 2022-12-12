@@ -20,10 +20,8 @@ function HomePage(props){
         votes: 12
     }
 
-    const posts = [singlePost, secondPost]
     return(
     <div>
-        <PostHolder posts ={posts}/>
     </div>
     )
 }
