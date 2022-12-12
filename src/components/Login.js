@@ -26,9 +26,6 @@ function Login(){
           .catch(err => console.log(err))
     }
 
-    function signUserOut(){
-        localStorage.clear()
-    }
     // console.log(localStorage.uid)
     return(
         <div>
@@ -46,7 +43,6 @@ function Login(){
             <br/>
             <input type="submit" value="Submit"/>
             </form>
-            <button onClick={signUserOut}>Sign Out</button>
 
         </div>
     )

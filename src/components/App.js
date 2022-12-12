@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Communities from './Communities';
 import Account from './Account';
+import Login from './Login'
 import Notifications from './Notifications';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -35,7 +36,7 @@ function App() {
                 <Route path="/" element={<PostHolder/>}/>
                 <Route path="/notifications" element={<Notifications/>}/>
                 <Route path="/communities" element={<Communities/>}/>
-                <Route path="/account" element={<Account/>}/>
+                <Route path="/account" element={user ? <Account setUser={setUser}/>: <Login/>}/>
             </Routes>
         </div>
   );
