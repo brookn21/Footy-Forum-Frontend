@@ -7,6 +7,7 @@ import Account from './Account';
 import Login from './Login'
 import Notifications from './Notifications';
 import 'semantic-ui-css/semantic.min.css'
+import Signin from './Signup';
 
 const updateUrl = "http://localhost:3000/profile"
 
@@ -31,12 +32,13 @@ function App() {
   return (
       <div>
             <NavBar/>
-            <h1>Welcome {user?.username}</h1>
             <Routes>
                 <Route path="/" element={<PostHolder/>}/>
                 <Route path="/notifications" element={<Notifications/>}/>
                 <Route path="/communities" element={<Communities/>}/>
-                <Route path="/account" element={user ? <Account setUser={setUser}/>: <Login/>}/>
+                <Route path="/signup" element={<Signin/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/account" element={<Account setUser={setUser}/>}/>
             </Routes>
         </div>
   );

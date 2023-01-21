@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+
 }
 
 body {
@@ -43,4 +44,11 @@ body {
 
 .nav li:hover{
   background-color: #777;
+}
+.cardHolder{
+  padding: 20px;
+}
+.card.ui.card{
+  width: 650px;
+  /* background-color: #555; */
 }
