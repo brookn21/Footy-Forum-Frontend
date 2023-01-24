@@ -4,9 +4,12 @@ import "./App.css"
 
 function NavBar(){
 return(
-    <nav className="nav">
-        <a href="/" className="title">Fake Reddit</a>
-        <ul>
+    <div className="sum">
+        <div className="title">
+        <a href="/">Fake Reddit</a>
+        </div>
+            <nav className="item">
+        <ul className="ul">
             <li><Link to="/notifications">Notifications</Link></li>
             <li><Link to="/communities">Communities</Link></li>
             <li><Link to="/account">Account</Link></li>
@@ -14,6 +17,7 @@ return(
             <li><Link to="/signup">Sign Up</Link></li>
         </ul>
     </nav>
+    </div>
 )
 }
 
