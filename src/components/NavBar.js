@@ -2,19 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom"
 import "./App.css"
 
-function NavBar(){
+function NavBar(props){
+    const { user, setUser } = props
+    
+    function signUserOut(){
+        localStorage.clear()
+        setUser(null)
+    }
 return(
     <div className="sum">
         <div className="title">
-        <a href="/">Fake Reddit</a>
+        <a href="/">Footy Forum</a>
         </div>
+        
             <nav className="item">
         <ul className="ul">
-            <li><Link to="/notifications">Notifications</Link></li>
-            <li><Link to="/communities">Communities</Link></li>
-            <li><Link to="/account">Account</Link></li>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
+            { user ? <li><Link to="/createpost">Create Post</Link></li> : null}
+            { user ? <li><Link to="/account">Account</Link></li> : null}
+            {user ? null : <li><Link to="/login">Log In</Link></li>}
+            { user ? null : <li><Link to="/signup">Sign Up</Link></li> }
+            {user ? <li onClick={signUserOut}><Link to="/">Sign Out</Link></li>: null }
         </ul>
     </nav>
     </div>

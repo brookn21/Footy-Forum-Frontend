@@ -8,7 +8,7 @@
 
 body {
   margin: 0;
-  background-image: url(./assets/pitch.jpeg);
+  /* background-image: url(./assets/pitch.jpeg); */
   /* background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -49,5 +49,56 @@ li {
 }
 .card.ui.card{
   width: 650px;
-  background-color: grey;
+  margin: 0;
+  /* background-color: grey; */
+}
+
+.header{
+  width: 100%;
+  /* height: 180px; */
+}
+
+.leagueName{
+  font-size: 65px;
+}
+
+.centerText{
+  text-align: center;
+}
+
+.homeHeader{
+  text-align: center;
+}
+
+.userImage {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.username{
+  text-align: center;
+  font-size: 30px;
+}
+
+.bio{
+  text-align: center;
+}
+
+.trashButton{
+  float: right;
+}
+
+.editForm{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+
+.cardForm{
+  text-align: center;
+  /* width: 800px; */
 }
