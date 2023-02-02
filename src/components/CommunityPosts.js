@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom"
 
 function CommunityPosts(props) {
     const { post } = props;
@@ -23,13 +24,15 @@ function CommunityPosts(props) {
                 <div class="ui red button">
                   <i class="heart icon"></i> Like
                 </div>
-                <a class="ui basic red left pointing label">{post?.votes}</a>
+                <a class="ui basic red left pointing label">{post.likes.length}</a>
               </div>
+              <Link to= {`/post/` + post?.id}class="navLink">
               <div class="ui left labeled button" tabindex="0">
-                <a class="ui basic right pointing label">2,048</a>
+                <a class="ui basic right pointing label">{post.comments.length}</a>
                 <div class="ui button">Comments</div>
               </div>
-              <button class="ui inverted blue button">Edit</button>
+              </Link>
+              {/* <button class="ui inverted blue button">Edit</button> */}
             </Card.Content>
           </Card>
         </div>

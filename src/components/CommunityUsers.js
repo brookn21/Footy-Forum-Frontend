@@ -9,7 +9,7 @@ function CommunityUsers(props) {
         <List.Item>
           <Image
             avatar
-            src="https://react.semantic-ui.com/images/avatar/small/helen.jpg"
+            src={user?.img ? user.img : "https://www.asiamediajournal.com/wp-content/uploads/2022/11/Default-PFP.jpg"}
           />
           <List.Content>
             <List.Header>{user.username}</List.Header>

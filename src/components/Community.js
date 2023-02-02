@@ -39,8 +39,7 @@ function Community(props){
     function changeJoin(){
         setJoin(!join)
     }
-    // console.log(user?.communities.find(e => e.name === community?.name))
-    // (vendors.find(e => e.Name === 'Magenic')
+
 
     return(
         <div>

@@ -5,6 +5,7 @@ import HomeSearch from "./HomeSearch";
 
 function PostHolder(props){
 
+    const { user } = props
     const [posts, setPosts] = useState([])
     
     useEffect(()=>{
@@ -18,6 +19,7 @@ function PostHolder(props){
         <EachPost 
         key={post.id}
         post={post}
+        user={user}
         />
     )
 

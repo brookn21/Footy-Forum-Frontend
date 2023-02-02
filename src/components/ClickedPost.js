@@ -10,6 +10,7 @@ function ClickedPost(props) {
     const [ post, setPost] = useState({})
     const [ comments, setComments] = useState([post])
     const [ body, setBody] = useState("")
+    const [ likes, setLikes] = useState([])
     
     
     const postUrl = 'http://localhost:3000/posts/' + id
@@ -20,12 +21,12 @@ function ClickedPost(props) {
         .then( (postInfo) => {
             setPost(postInfo)
         setComments(postInfo.comments)
+        setLikes(postInfo.likes)
         }
         )
     }, []
     )
         
-        // setComments(post?.comments)
 
     const renderComments = comments?.map((comment) =>
         <Comments comment ={comment}
@@ -38,7 +39,6 @@ function ClickedPost(props) {
         post_id: post.id,
         body
     }
-
 
     function createComment(e){
     e.preventDefault();
@@ -75,7 +75,7 @@ function ClickedPost(props) {
                 <div class="ui red button">
                   <i class="heart icon"></i> Like
                 </div>
-                <a class="ui basic red left pointing label">{post?.votes}</a>
+                <a class="ui basic red left pointing label">{likes.length}</a>
               </div>
               <div class="ui left labeled button" tabindex="0">
                 <a class="ui basic right pointing label">{comments?.length}</a>

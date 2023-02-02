@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 
 function UserPosts(props) {
     const { post } = props;
+
+    console.log(post)
     return (
       <div className="cardHolder">
         {/* <div class="ui fluid card"> */}
@@ -23,16 +25,17 @@ function UserPosts(props) {
             <Card.Content extra>
               {/* <Icon name='user' />
       {post.votes} */}
-              <div class="ui labeled button">
+              {/* <div class="ui labeled button">
                 <div class="ui red button">
                   <i class="heart icon"></i> Like
                 </div>
-                <a class="ui basic red left pointing label">{post?.votes}</a>
-              </div>
-              <div class="ui left labeled button" tabindex="0">
+                <a class="ui basic red left pointing label">2</a>
+              </div> */}
+              {/* {post.likes.length} */}
+              {/* <div class="ui left labeled button" tabindex="0">
                 <a class="ui basic right pointing label">2,048</a>
                 <div class="ui button">Comments</div>
-              </div>
+              </div> */}
               <Link to={`/editPost/` + post?.id}><button class="ui inverted blue button">Edit</button></Link>
             </Card.Content>
           </Card>

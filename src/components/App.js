@@ -35,7 +35,7 @@ function App() {
       <div>
             <NavBar user = {user} setUser = {setUser}/>
             <Routes>
-                <Route path="/" element={<PostHolder/>}/>
+                <Route path="/" element={<PostHolder user={user}/>}/>
                 <Route path="/notifications" element={<Notifications/>}/>
                 <Route path="/signup" element={<Signin setUser={setUser}/>}/>
                 <Route path="/createpost" element={<CreatePost user = {user}/>}/>
