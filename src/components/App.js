@@ -18,6 +18,8 @@ const updateUrl = "http://localhost:3000/profile"
 function App() {
 
   const [ user, setUser ] = useState(null)
+  const [ userPosts, setUserPosts] = useState([])
+  
 
   useEffect(()=>{
     if (localStorage.uid)
@@ -28,7 +30,12 @@ function App() {
           'Authenticate': localStorage.uid}
       })
       .then(r => r.json())
-      .then( userInfo => setUser(userInfo))
+      .then( (userInfo) => {
+        setUser(userInfo)
+        setUserPosts(userInfo.posts)
+      }
+      )
+      
   }, [])
 
   return (
@@ -40,9 +47,9 @@ function App() {
                 <Route path="/signup" element={<Signin setUser={setUser}/>}/>
                 <Route path="/createpost" element={<CreatePost user = {user}/>}/>
                 <Route path="/login" element={<Login setUser={setUser}/>}/>
-                <Route path="/account" element={<Account user={user}/>}/>
+                <Route path="/account" element={<Account user={user} posts={userPosts}/>}/>
                 <Route path="/post/:id"element={<ClickedPost user={user}/>}/>
-                <Route path="/editPost/:id"element={<EditPost/>}/>
+                <Route path="/editPost/:id"element={<EditPost setUserPosts= {setUserPosts} userPosts={userPosts}/>}/>
                 <Route path="/accountEdit"element={<EditAccount user={user}/>}/>
                 <Route path="/community/:id" element={<Community user={user}/>}/>
             </Routes>

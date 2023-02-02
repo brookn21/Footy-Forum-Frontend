@@ -6,14 +6,14 @@ import { Link } from "react-router-dom"
 
 
 function Account(props) {
-  const { user } = props;
+  const { user, posts } = props;
   const [ show, setShow ] = useState(true)
 
   function changeShow(){
       setShow(!show)
   }
 
-  const posts = user?.posts
+  // const posts = user?.posts
   const communities = user?.communities
 
   const renderPosts = posts?.map((post)=>

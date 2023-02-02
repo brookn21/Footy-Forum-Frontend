@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Card, Form, Button } from "semantic-ui-react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditPost() {
+function EditPost(props) {
+    const { setUserPosts, userPosts } = props
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -40,11 +41,19 @@ function EditPost() {
       body: JSON.stringify(postData),
     })
       .then((r) => r.json())
-      .then((userPost) => console.log(userPost));
-    navigate("/account");
+      .then((updatedPost) => {
+          const changedPost = userPosts.findIndex(post => post.id === updatedPost.id)
+        let posts = userPosts
+        posts[changedPost] = updatedPost
+        setUserPosts(posts)
+        navigate("/account");
     setTitle("");
     setImg("");
     setBody("");
+        console.log(posts)
+        console.log(userPosts)
+      });
+
   }
 
   function deletePost() {

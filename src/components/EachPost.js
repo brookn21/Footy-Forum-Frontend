@@ -6,7 +6,7 @@ function EachPost(props) {
   const { post, user } = props;
   const [liked, setLiked] = useState(false)
 
-  const userLiked =post?.likes.find(like => like.user_id === user.id)
+  const userLiked =post?.likes.find(like => like.user_id === user?.id)
 
   // userLiked ? setLiked(true) : setLiked(false) 
 
