@@ -41,7 +41,7 @@ const leagues = [
 ];
 
 function CreatePost(props){
-    const { user } = props
+    const { user, setUserPosts, userPosts } = props
     const [title, setTitle] = useState("");
     const [img, setImg] = useState("");
     const [body, setBody] = useState("");
@@ -67,8 +67,11 @@ function CreatePost(props){
         body: JSON.stringify(newPost),
       })
         .then((r) => r.json())
-        .then((userPost) => console.log(userPost))
-        // navigate("/")
+        .then((addedPost) => {
+          setUserPosts(...userPosts,addedPost)
+          navigate("/")
+        })
+        // 
         setTitle("")
         setImg("")
         setBody("")

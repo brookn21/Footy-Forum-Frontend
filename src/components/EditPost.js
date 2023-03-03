@@ -50,8 +50,6 @@ function EditPost(props) {
     setTitle("");
     setImg("");
     setBody("");
-        console.log(posts)
-        console.log(userPosts)
       });
 
   }
@@ -60,7 +58,7 @@ function EditPost(props) {
     fetch(postUrl, {
       method: "DELETE",
     })
-      .then((res) => res.josn())
+      .then((r) => r.josn())
       .then((res) => console.log(res));
     navigate("/account");
   }

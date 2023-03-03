@@ -54,6 +54,7 @@ function ClickedPost(props) {
             .then((addComment) => setComments([...comments, addComment]))
             navigate(``)
             setBody("")
+            //user?.comments
     }
     return (
       <div className="cardHolder">

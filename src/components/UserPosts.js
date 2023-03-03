@@ -6,7 +6,6 @@ import { Link } from "react-router-dom"
 function UserPosts(props) {
     const { post } = props;
 
-    console.log(post)
     return (
       <div className="cardHolder">
         {/* <div class="ui fluid card"> */}

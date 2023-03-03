@@ -11,17 +11,40 @@ function EachPost(props) {
   // userLiked ? setLiked(true) : setLiked(false) 
 
 
-  // console.log(liked)
+  // console.log(userLiked?.id)
 
-  function createLike(){
-    console.log("hi")
-    setLiked(!liked)
-  }
+  // const likeUrl = "http://localhost:3000/likes/" + userLiked?.id
 
-  function deleteLike(){
-    console.log("bye")
-    setLiked(!liked)
+  const newLike = {
+    user_id: user?.id,
+    post_id: post?.id
   }
+  // console.log(userLiked.id)
+  function createLike(e){
+    e.preventDefault();
+          fetch("http://localhost:3000/likes", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newLike),
+          })
+            .then((r) => r.json())
+            // .then((addComment) => setComments([...comments, addComment]))
+            setLiked(!liked)
+    }
+
+  // function deleteLike(){
+  //   fetch(`http://localhost:3000/likes/${user?.id}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((res) => res.josn())
+  //     .then((res) => {
+  //       console.log(res)
+  //       setLiked(!liked)
+  //     });
+  // } 
 
   return (
     <div className="cardHolder">
@@ -42,7 +65,7 @@ function EachPost(props) {
           {/* {liked ? console.log("hi") : console.log("hasdsadi")} */}
           {/* onClick={createLike} */}
               <div class="ui labeled button" >
-              <div  onClick={userLiked ? deleteLike : createLike} class={userLiked || liked ? "ui red button" :"ui button"}>
+              <div  onClick={ user ? userLiked ? null : createLike : null} class={user ? userLiked || liked ? "ui red button" :"ui button" :"ui button" }>
                 <i class="heart icon"></i> Like
               </div>
               <a class={userLiked ? "ui basic red left pointing label" : "ui basic left pointing label"}>{post.likes?.length}</a>

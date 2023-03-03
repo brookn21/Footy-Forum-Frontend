@@ -45,7 +45,7 @@ function App() {
                 <Route path="/" element={<PostHolder user={user}/>}/>
                 <Route path="/notifications" element={<Notifications/>}/>
                 <Route path="/signup" element={<Signin setUser={setUser}/>}/>
-                <Route path="/createpost" element={<CreatePost user = {user}/>}/>
+                <Route path="/createpost" element={<CreatePost user = {user} userPosts={userPosts} setUserPosts={setUserPosts}/>}/>
                 <Route path="/login" element={<Login setUser={setUser}/>}/>
                 <Route path="/account" element={<Account user={user} posts={userPosts}/>}/>
                 <Route path="/post/:id"element={<ClickedPost user={user}/>}/>
