@@ -1,13 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./App.css"
 
 function NavBar(props){
     const { user, setUser } = props
+    const navigate = useNavigate()
     
     function signUserOut(){
         localStorage.clear()
         setUser(null)
+        navigate("/")
     }
 return(
     <div className="sum">

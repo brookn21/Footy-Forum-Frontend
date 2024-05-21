@@ -8,7 +8,6 @@ function EditAccount(props){
     const { user } = props
     // let { id } = useParams();
   const navigate = useNavigate();
-  const [yo, setYo] = useState("aksndkjasn")
   const [username, setUsername] = useState(user.username)
   const [ img, setImg ] = useState(user.img)
   const [ bio, setBio ] = useState(user.bio)

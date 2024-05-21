@@ -26,27 +26,35 @@ function Login(props) {
       body: JSON.stringify({
         username,
         password,
-      }),
-    })
-      .then((r) => r.json())
-      .then((user) => {
-        localStorage.uid = user.uid;
-        setUsername("");
-        setPassword("");
-        if (localStorage.uid !== "undefined" && localStorage.uid) {
-          fetch("http://localhost:3000/profile", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              Authenticate: localStorage.uid,
-            },
-          })
-            .then((r) => r.json())
-            .then((userInfo) => setUser(userInfo));
-          navigate("/");
-        }
       })
-      .catch((err) => console.log(err));
+    })
+    .then( r => r.json())
+          .then( user => {
+              localStorage.uid = user.uid
+              setUsername("")
+          setPassword("")
+          navigate("/")
+           })
+          .catch(err => console.log(err))
+      // .then((r) => r.json())
+      // .then((user) => {
+      //   localStorage.uid = user.uid;
+      //   setUsername("");
+      //   setPassword("");
+      //   if (localStorage.uid !== "undefined" && localStorage.uid) {
+      //     fetch("http://localhost:3000/profile", {
+      //       method: "POST",
+      //       headers: {
+      //         "content-type": "application/json",
+      //         Authenticate: localStorage.uid,
+      //       },
+      //     })
+      //       .then((r) => r.json())
+      //       .then((userInfo) => setUser(userInfo));
+      //     navigate("/");
+      //   }
+      // })
+      // .catch((err) => console.log(err));
   }
 
   // console.log(localStorage.uid)

@@ -26,7 +26,7 @@ function PostHolder(props){
     return(
         <div>
             <CommunityMenu/>
-            <HomeSearch/>
+            {/* <HomeSearch/> */}
             <h1 className="homeHeader">Top Posts</h1>
             {renderPosts}
         </div>
